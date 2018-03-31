@@ -14,7 +14,6 @@ const Mural = (function(_render, Filtro){
 
     function pegaCartoesUsuario(){
         let cartoesLocal = JSON.parse(localStorage.getItem(usuario))
-        console.log(localStorage.getItem(usuario))
         if(cartoesLocal){
             return cartoesLocal.map(cartaoLocal => new Cartao(cartaoLocal.conteudo, cartaoLocal.tipo))
         } else {

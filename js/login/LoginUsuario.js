@@ -7,7 +7,6 @@ LoginUsuario_render({
     ,usuario: localStorage.getItem("nomeUsuario")
     ,onLogin: (nomeUsuario) => {
         logado = true
-        console.log(nomeUsuario);
         localStorage.setItem("logado", true)
         localStorage.setItem("nomeUsuario", nomeUsuario)
         usuario = nomeUsuario
