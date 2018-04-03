@@ -1,3 +1,5 @@
+let versao = 3
+
 let arquivos = [
     "/",
     "css/estilos.css",
@@ -32,9 +34,13 @@ let arquivos = [
     "img/edit.svg"
 ]
 
-self.addEventListener("install", function(){
-    caches.open("ceep-arquivos").then(cache => {
+self.addEventListener("activate", function(){
+    caches.open("ceep-arquivos-" + versao).then(cache => {
         cache.addAll(arquivos)
+            .then(function(){
+                caches.delete("ceep-arquivos-" + (versao - 1))
+                caches.delete("ceep-arquivos")
+            })
     })
 })
 
